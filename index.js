@@ -8,4 +8,3 @@ exports.handler = function(event, context) {
     context.done(null, 'Hello World - DATE');  // SUCCESS with message
 };
 
-
