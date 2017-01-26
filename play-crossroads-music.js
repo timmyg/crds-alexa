@@ -88,17 +88,29 @@ generateResponse = (speechletResponse, sessionAttributes) => {
     "version": "1.0",
     "sessionAttributes": {},
     "response": {
-      "outputSpeech": {},
-      "card": {},
-      "reprompt": {},
+      "outputSpeech": {
+        "type": "PlainText",
+        "text": "Playing the requested song."
+      },
+      "card": {
+        "type": "Simple",
+        "title": "Play Audio",
+        "content": "Playing the requested song."
+      },
+      "reprompt": {
+        "outputSpeech": {
+          "type": "PlainText",
+          "text": null
+        }
+      },
       "directives": [
         {
           "type": "AudioPlayer.Play",
-          "playBehavior": "string",
+          "playBehavior": "ENQUEUE",
           "audioItem": {
             "stream": {
-              "token": "string",
-              "url": "string",
+              "token": "this-is-the-audio-token",
+              "url": "https://s3.amazonaws.com/crds-cms-uploads/media/music/01-Whatever-Pleases-You-Army-Version.mp3",
               "offsetInMilliseconds": 0
             }
           }
@@ -107,5 +119,4 @@ generateResponse = (speechletResponse, sessionAttributes) => {
       "shouldEndSession": true
     }
   }
-
 }
