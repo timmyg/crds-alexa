@@ -49,6 +49,24 @@ exports.handler = (event, context) => {
             })
             break;
 
+            case "WhatIs":
+              var endpoint = "https://www.crossroads.net/proxy/content//api/SiteConfig/1"
+              var body = ""
+              https.get(endpoint, (response) => {
+                response.on('data', (chunk) => { body += chunk })
+                response.on('end', () => {
+                  var data = JSON.parse(body)
+                  var responseText = data.siteConfig.rSS_iTunesSummary
+                  context.succeed(
+                    generateResponse(
+                      buildSpeechletResponse(responseText, true),
+                      {}
+                    )
+                  )
+                })
+              })
+              break;
+
           case "GetScrumUpdate":
             context.succeed(
               generateResponse(
