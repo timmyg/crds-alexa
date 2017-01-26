@@ -5,7 +5,7 @@ exports.handler = (event, context) => {
   try {
 
     if (event.session.new) {
-      // New Session 
+      // New Session
       console.log("NEW SESSION")
     }
 
@@ -28,13 +28,25 @@ exports.handler = (event, context) => {
 
         switch(event.request.intent.name) {
           case "PlayMusic":
-            context.succeed(
-              generateResponse(
-                buildAudioResponse("https://s3.amazonaws.com/crds-cms-uploads/media/messages/video/resilient-01.mp4",
-                                   "I cant play music on demand but here is a demo", true),
-                {}
-              )
-            )
+            var endpoint = "https://www.crossroads.net/proxy/content/api/singleMedia"
+            var body = ""
+            https.get(endpoint, (response) => {
+              response.on('data', (chunk) => { body += chunk })
+              response.on('end', () => {
+                var media = JSON.parse(body).singleMedia
+                var audio = media.filter(function( obj ) {
+                  return obj.className == "Music";
+                });
+
+                context.succeed(
+                  generateResponse(
+                    buildAudioResponse(audio.source.filename,
+                                       `Playing ${audio.title}`, true),
+                    {}
+                  )
+                )
+              })
+            })
             break;
           case "PlayLatestService":
             var endpoint = "https://www.crossroads.net/proxy/content/api/series";
