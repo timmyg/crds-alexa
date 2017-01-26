@@ -37,20 +37,20 @@ exports.handler = (event, context) => {
             )
             break;
           case "PlayLatestService":
-              var endpoint = "https://www.crossroads.net/proxy/content/api/series"
-              var body = ""
+              var endpoint = "https://www.crossroads.net/proxy/content/api/series";
+              var body = "";
               https.get(endpoint, (response) => {
-                response.on('data', (chunk) => { body += chunk })
+                response.on('data', (chunk) => { body += chunk });
                 response.on('end', () => {
                   var data = JSON.parse(body);
                   var messages = data.series[0].messages;
                   var latestMessage = messages[messages.length - 1];
                   var url = latestMessage.messageAudio.source.filename
                   context.succeed(generateResponse(
-                    buildAudioResponse(latestMessage.messageAudio.source.filename
-                                       `This service is about ${latestMessage.description}`, true), {}));
-                })
-              })
+                    buildAudioResponse(latestMessage.messageAudio.source.filename,
+                                       `This service is about ${latestMessage.description}`, true), {}))
+                });
+              });
             break;
 
           default:
