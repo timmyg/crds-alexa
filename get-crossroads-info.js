@@ -52,7 +52,7 @@ exports.handler = (event, context) => {
           case "GetScrumUpdate":
             context.succeed(
               generateResponse(
-                buildSpeechletResponse('hello what is up crossroads', true),
+                buildSpeechletResponse('We successfully built a development version of the Crossroads Alexa skill and are now working on playing audio back rather than just text so that we can play some worship music', true),
                 {}
               )
             )
