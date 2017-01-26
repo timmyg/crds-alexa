@@ -5,7 +5,7 @@ exports.handler = (event, context) => {
   try {
 
     if (event.session.new) {
-      // New Session
+      // New Session 
       console.log("NEW SESSION")
     }
 
