@@ -119,7 +119,7 @@ generateResponse = (speechletResponse, sessionAttributes) => {
           "audioItem": {
             "stream": {
               "token": "this-is-the-audio-token",
-              "url": "https://my-audio-hosting-site.com/audio/sample-song.mp3",
+              "url": "https://s3.amazonaws.com/crds-cms-uploads/media/music/04-Good-Good-Father.mp3",
               "offsetInMilliseconds": 0
             }
           }
