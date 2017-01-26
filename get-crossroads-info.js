@@ -49,6 +49,15 @@ exports.handler = (event, context) => {
             })
             break;
 
+          case "GetScrumUpdate":
+            context.succeed(
+              generateResponse(
+                buildSpeechletResponse('hello what is up crossroads', true),
+                {}
+              )
+            )
+            break;
+
           default:
             throw "Invalid intent"
         }
