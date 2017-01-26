@@ -6,5 +6,4 @@ exports.handler = function(event, context) {
     console.log('is = ' + event.key2);
     console.log('awesome = ' + event.key3);
     context.done(null, 'Play Crossroads Music');
-
 };
