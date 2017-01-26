@@ -31,7 +31,7 @@ exports.handler = (event, context) => {
             context.succeed(
               generateResponse(
                 buildAudioResponse("https://s3.amazonaws.com/crds-cms-uploads/media/messages/video/resilient-01.mp4",
-                                   "I cant play music on demand but here is a demo"),
+                                   "I cant play music on demand but here is a demo", true),
                 {}
               )
             )
@@ -68,7 +68,7 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
   }
 }
 
-buildAudioResponse = (url, outputText="", shouldEndSession=true) => {
+buildAudioResponse = (url, outputText, shouldEndSession) => {
   return {
     outputSpeech: {
       type: "PlainText",
