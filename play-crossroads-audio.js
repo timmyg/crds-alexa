@@ -27,28 +27,6 @@ exports.handler = (event, context) => {
         console.log(`INTENT REQUEST`)
 
         switch(event.request.intent.name) {
-          case "Garbage":
-            console.log("Garbage...");
-            throw "Invalid intent"
-
-          case "GetNextServiceTime":
-            var endpoint = "https://www.crossroads.net/proxy/content/api/SystemPage/?StateName=live"
-            var body = ""
-            https.get(endpoint, (response) => {
-              response.on('data', (chunk) => { body += chunk })
-              response.on('end', () => {
-                var data = JSON.parse(body)
-                var streamTimes = data.systemPages[0].description
-                context.succeed(
-                  generateResponse(
-                    buildSpeechletResponse(streamTimes, true),
-                    {}
-                  )
-                )
-              })
-            })
-            break;
-
           case "PlayMusic":
             context.succeed(
               generateResponse(
