@@ -52,7 +52,8 @@ exports.handler = (event, context) => {
           case "PlayMusic":
             context.succeed(
               generateResponse(
-                buildAudioResponse('I cant play music yet'),
+                buildAudioResponse("https://s3.amazonaws.com/crds-cms-uploads/media/messages/video/resilient-01.mp4",
+                                   "I cant play music on demand but here is a demo"),
                 {}
               )
             )
@@ -79,7 +80,7 @@ exports.handler = (event, context) => {
 }
 
 // Helpers
-buildAudioResponse = (url, shouldEndSession, outputText="") => {
+buildAudioResponse = (url, outputText="", shouldEndSession=true) => {
   return {
     outputSpeech: {
       type: "PlainText",
@@ -92,7 +93,7 @@ buildAudioResponse = (url, shouldEndSession, outputText="") => {
         audioItem: {
           stream: {
             token: "this-is-the-audio-token",
-            url: "https://s3.amazonaws.com/crds-cms-uploads/media/music/04-Good-Good-Father.mp3",
+            url: url,
             offsetInMilliseconds: 0
           }
         }
