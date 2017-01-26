@@ -39,7 +39,7 @@ exports.handler = (event, context) => {
                 var nextService = data.systemPages[0].description
                 context.succeed(
                   generateResponse(
-                    buildSpeechletResponse(`${nextService}`, true),
+                    buildSpeechletResponse(`hi, ${nextService}`, true),
                     {}
                   )
                 )
