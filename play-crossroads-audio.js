@@ -34,14 +34,15 @@ exports.handler = (event, context) => {
               response.on('data', (chunk) => { body += chunk })
               response.on('end', () => {
                 var media = JSON.parse(body).singleMedia
-                var audio = media.filter(function( obj ) {
+                var mediaAudio = media.filter(function( obj ) {
                   return obj.className == "Music";
                 });
-
+                var randomNumber = Math.floor(Math.random() * mediaAudio.length)
+                var randomAudio = mediaAudio[randomNumber]
                 context.succeed(
                   generateResponse(
-                    buildAudioResponse(audio.source.filename,
-                                       `Playing ${audio.title}`, true),
+                    buildAudioResponse(randomAudio.source.filename,
+                                       `Playing ${randomAudio.title}`, true),
                     {}
                   )
                 )
