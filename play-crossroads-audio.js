@@ -52,7 +52,7 @@ exports.handler = (event, context) => {
             var endpoint = "https://www.crossroads.net/proxy/content/api/series";
             var body = "";
             https.get(endpoint, (response) => {
-              response.on('data', (chunk) => { body += chunk });
+              response.on('data', (chunk) => { body += chunk })
               response.on('end', () => {
                 var data = JSON.parse(body);
                 var messages = data.series[0].messages;
@@ -63,7 +63,7 @@ exports.handler = (event, context) => {
                   generateResponsebuildAudioResponse(url, `This service is about ${description}`, true),
                   {}
                 );
-              });
+              })
             });
             break;
           default:
