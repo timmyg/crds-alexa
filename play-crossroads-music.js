@@ -97,25 +97,10 @@ generateResponse = (speechletResponse, sessionAttributes) => {
     "version": "1.0",
     "sessionAttributes": {},
     "response": {
-      "outputSpeech": {
-        "type": "PlainText",
-        "text": "Playing the requested song."
-      },
-      "card": {
-        "type": "Simple",
-        "title": "Play Audio",
-        "content": "Playing the requested song."
-      },
-      "reprompt": {
-        "outputSpeech": {
-          "type": "PlainText",
-          "text": null
-        }
-      },
       "directives": [
         {
           "type": "AudioPlayer.Play",
-          "playBehavior": "ENQUEUE",
+          "playBehavior": "REPLACE_ALL",
           "audioItem": {
             "stream": {
               "token": "this-is-the-audio-token",
