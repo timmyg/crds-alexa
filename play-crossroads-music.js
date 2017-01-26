@@ -94,9 +94,39 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
 generateResponse = (speechletResponse, sessionAttributes) => {
 
   return {
-    version: "1.0",
-    sessionAttributes: sessionAttributes,
-    response: speechletResponse
+    "version": "1.0",
+    "sessionAttributes": {},
+    "response": {
+      "outputSpeech": {
+        "type": "PlainText",
+        "text": "Playing the requested song."
+      },
+      "card": {
+        "type": "Simple",
+        "title": "Play Audio",
+        "content": "Playing the requested song."
+      },
+      "reprompt": {
+        "outputSpeech": {
+          "type": "PlainText",
+          "text": null
+        }
+      },
+      "directives": [
+        {
+          "type": "AudioPlayer.Play",
+          "playBehavior": "ENQUEUE",
+          "audioItem": {
+            "stream": {
+              "token": "this-is-the-audio-token",
+              "url": "https://my-audio-hosting-site.com/audio/sample-song.mp3",
+              "offsetInMilliseconds": 0
+            }
+          }
+        }
+      ],
+      "shouldEndSession": true
+    }
   }
 
 }
