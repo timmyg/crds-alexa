@@ -59,7 +59,10 @@ exports.handler = (event, context) => {
                 var latestMessage = messages[messages.length - 1];
                 var url = latestMessage.messageAudio.source.filename;
                 var description = latestMessage.description.replace(/<(?:.|\n)*?>/gm, '');
-                context.succeed(generateResponsebuildAudioResponse(url, `This service is about ${description}`, true), {});
+                context.succeed(
+                  generateResponsebuildAudioResponse(url, `This service is about ${description}`, true),
+                  {}
+                );
               });
             });
             break;
