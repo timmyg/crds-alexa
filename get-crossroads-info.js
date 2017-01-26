@@ -1,3 +1,4 @@
+console.log('api key', process.env.STREAMSPOT_API_KEY)
 var https = require('https')
 
 exports.handler = (event, context) => {
