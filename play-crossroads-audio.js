@@ -29,19 +29,19 @@ exports.handler = (event, context) => {
         switch(event.request.intent.name) {
           case "PlayMusic":
             var endpoint = "https://www.crossroads.net/proxy/content/api/singleMedia"
-            var body = ""
+            let body = ""
             https.get(endpoint, (response) => {
               response.on('data', (chunk) => { body += chunk })
               response.on('end', () => {
-                var media = JSON.parse(body).singleMedia
-                var audio = media.filter(function( obj ) {
+                let media = JSON.parse(body).singleMedia
+                let mediaAudio = media.filter(function( obj ) {
                   return obj.className == "Music";
                 });
-
+                let randomAudio = Math.floor(Math.random() * mediaAudio.length)
                 context.succeed(
                   generateResponse(
-                    buildAudioResponse(audio.source.filename,
-                                       `Playing ${audio.title}`, true),
+                    buildAudioResponse(randomAudio.source.filename,
+                                       `Playing ${randomAudio.title}`, true),
                     {}
                   )
                 )
