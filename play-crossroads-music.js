@@ -52,7 +52,7 @@ exports.handler = (event, context) => {
           case "PlayMusic":
             context.succeed(
               generateResponse(
-                buildSpeechletResponse('I cant play music yet'),
+                buildAudioResponse('I cant play music yet'),
                 {}
               )
             )
@@ -79,39 +79,33 @@ exports.handler = (event, context) => {
 }
 
 // Helpers
-buildSpeechletResponse = (outputText, shouldEndSession) => {
-
+buildAudioResponse = (url, shouldEndSession, outputText="") => {
   return {
     outputSpeech: {
       type: "PlainText",
       text: outputText
     },
+    directives: [
+      {
+        type: "AudioPlayer.Play",
+        playBehavior: "REPLACE_ALL",
+        audioItem: {
+          stream: {
+            token: "this-is-the-audio-token",
+            url: "https://s3.amazonaws.com/crds-cms-uploads/media/music/04-Good-Good-Father.mp3",
+            offsetInMilliseconds: 0
+          }
+        }
+      }
+    ],
     shouldEndSession: shouldEndSession
   }
-
 }
 
 generateResponse = (speechletResponse, sessionAttributes) => {
-
   return {
-    "version": "1.0",
-    "sessionAttributes": {},
-    "response": {
-      "directives": [
-        {
-          "type": "AudioPlayer.Play",
-          "playBehavior": "REPLACE_ALL",
-          "audioItem": {
-            "stream": {
-              "token": "this-is-the-audio-token",
-              "url": "https://s3.amazonaws.com/crds-cms-uploads/media/music/04-Good-Good-Father.mp3",
-              "offsetInMilliseconds": 0
-            }
-          }
-        }
-      ],
-      "shouldEndSession": true
-    }
+    version: "1.0",
+    sessionAttributes: sessionAttributes,
+    response: speechletResponse
   }
-
 }
