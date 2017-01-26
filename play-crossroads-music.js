@@ -32,21 +32,12 @@ exports.handler = (event, context) => {
             throw "Invalid intent"
 
           case "PlayMusic":
-            var endpoint = "https://www.crossroads.net/proxy/content/api/SystemPage/?StateName=live"
-            var body = ""
-            https.get(endpoint, (response) => {
-              response.on('data', (chunk) => { body += chunk })
-              response.on('end', () => {
-                var data = JSON.parse(body)
-                var streamTimes = data.systemPages[0].description
-                context.succeed(
-                  generateResponse(
-                    buildSpeechletResponse(streamTimes, true),
-                    {}
-                  )
-                )
-              })
-            })
+            context.succeed(
+              generateResponse(
+                buildSpeechletResponse(`I can't play music yet`, true),
+                {}
+              )
+            )
             break;
 
           default:
