@@ -58,6 +58,16 @@ exports.handler = (event, context) => {
 }
 
 // Helpers
+buildSpeechletResponse = (outputText, shouldEndSession) => {
+  return {
+    outputSpeech: {
+      type: "PlainText",
+      text: outputText
+    },
+    shouldEndSession: shouldEndSession
+  }
+}
+
 buildAudioResponse = (url, outputText="", shouldEndSession=true) => {
   return {
     outputSpeech: {
