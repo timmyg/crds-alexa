@@ -37,7 +37,8 @@ exports.handler = (event, context) => {
                 var mediaAudio = media.filter(function( obj ) {
                   return obj.className == "Music";
                 });
-                var randomAudio = Math.floor(Math.random() * mediaAudio.length)
+                var randomNumber = Math.floor(Math.random() * mediaAudio.length)
+                var randomAudio = mediaAudio[randomNumber]
                 context.succeed(
                   generateResponse(
                     buildAudioResponse(randomAudio.source.filename,
