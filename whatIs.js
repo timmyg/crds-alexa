@@ -5,18 +5,18 @@ let https = require('https');
 
 class WhatIs extends Skill{
   constructor(context) {
-    this.endpoint = "https://www.crossroads.net/proxy/content//api/SiteConfig/1";
     super(context);
+    this.endpoint = "https://www.crossroads.net/proxy/content//api/SiteConfig/1";
   }
 
   execute() {
-    https.get(endpoint, (response) => {
+    https.get(this.endpoint, (response) => {
         let body = "";
         response.on('data', (chunk) => { body += chunk });
         response.on('end', () => {
             let data = JSON.parse(body);
             let responseText = data.siteConfig.rSS_iTunesSummary;
-            context.succeed(generateResponse(buildSpeechletResponse(responseText, true), {}));
+            this.context.succeed(this.generateResponse(this.buildSpeechletResponse(responseText, true), {}));
         });
     }); 
   }
