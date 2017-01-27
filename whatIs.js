@@ -3,9 +3,9 @@
 let Skill = require('./skill');
 let https = require('https');
 
-class GetNextServiceTime extends Skill{
+class WhatIs extends Skill{
   constructor(context) {
-    this.endpoint = "https://www.crossroads.net/proxy/content/api/SystemPage/?StateName=live";
+    this.endpoint = "https://www.crossroads.net/proxy/content//api/SiteConfig/1";
     super(context);
   }
 
@@ -15,11 +15,11 @@ class GetNextServiceTime extends Skill{
         response.on('data', (chunk) => { body += chunk });
         response.on('end', () => {
             let data = JSON.parse(body);
-            let streamTimes = data.systemPages[0].description;
-            context.succeed(generateResponse(buildSpeechletResponse(streamTimes, true), {}));
+            let responseText = data.siteConfig.rSS_iTunesSummary;
+            context.succeed(generateResponse(buildSpeechletResponse(responseText, true), {}));
         });
     }); 
   }
 }
 
-module.exports = GetNextServiceTime;
+module.exports = WhatIs;

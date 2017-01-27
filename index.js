@@ -2,6 +2,8 @@
 
 let Skill = require('./skill.js');
 let GetScrumUpdate = require('./getScrumUpdate.js');
+let GetNextServiceTime = require('./getNextServiceTime.js');
+let WhatIs = require('./whatIs.js');
 
 exports.handler = (event, context) => {
     try {
