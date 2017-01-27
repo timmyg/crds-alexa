@@ -1,5 +1,4 @@
 var https = require('https')
-var moment = require('moment')
 
 exports.handler = (event, context) => {
 
@@ -33,14 +32,6 @@ exports.handler = (event, context) => {
             throw "Invalid intent"
 
           case "GetNextServiceTime":
-            var text = moment().add(3, 'd').calendar();
-            context.succeed(
-              generateResponse(
-                buildSpeechletResponse(text, true),
-                {}
-              )
-            )
-/*          
             var endpoint = "https://www.crossroads.net/proxy/content/api/SystemPage/?StateName=live"
             var body = ""
             https.get(endpoint, (response) => {
@@ -56,7 +47,6 @@ exports.handler = (event, context) => {
                 )
               })
             })
-*/
             break;
 
             case "WhatIs":
