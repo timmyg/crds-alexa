@@ -1,15 +1,17 @@
 'use strict';
 
-import './skill.js';
+let Skill = require('./skill.js');
+let GetScrumUpdate = require('./getScrumUpdate.js');
 
-var skill;
 exports.handler = (event, context) => {
     try {
         if (event.session.new) {
             console.log("NEW SESSION");
         }
     
-        Skill.execute(event.request.intent.name);
+        let c = eval(event.request.intent.name);
+        let skill = new c(context);
+        skill.execute();
     }
     catch(error) {
         context.fail(`Exception: ${error}`);

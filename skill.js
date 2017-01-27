@@ -1,18 +1,11 @@
 'use strict';
 
-import './getScrumUpdate';
-
-export default class Skill {
-    constructor() {
+class Skill {
+    constructor(context) {
+        this.context = context;
     }
     
     execute() {
-    }
-    
-    static execute(type) {
-        let c = eval(type);
-        let skill = new c();
-        skill.execute();
     }
     
     buildSpeechletResponse(outputText, shouldEndSession) {
@@ -33,3 +26,5 @@ export default class Skill {
         }
     }
 }
+
+module.exports = Skill;
