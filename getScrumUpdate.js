@@ -1,5 +1,7 @@
 'use strict';
 
+import './skill';
+
 class GetScrumUpdate extends Skill{
   constructor() {
   }
