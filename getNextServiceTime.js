@@ -81,7 +81,7 @@ class GetNextServiceTime extends Skill {
                     sentences.push('A service is currently in progress');
 
                 if (nextEvent)
-                    sentences.push('The next service is ' + moment(nextEvent.start).calendar());
+                    sentences.push('The next service is ' + moment(this.getEventStartTime(nextEvent)).calendar());
 
                 if (sentences.length == 0)
                     sentences.push("I couldn't find any upcoming events");
@@ -89,6 +89,28 @@ class GetNextServiceTime extends Skill {
                 callback(sentences.join('. '));
             });
         });
+    }
+
+    // event.start time provided by streamspot is the time that the live streaming begins,
+    // which is typically 10 minutes or so BEFORE the true start time.  The event.title field
+    // typically contains text like "Saturday 4:30 pm", so we can extract the time portion
+    // from the title then replace just the time portion of event.start to get the true
+    // date/time.  If we can't get the time from the title, then we'll fallback to using the
+    // original event.start as is (i.e., off by 10 minutes)
+    getEventStartTime(event) {
+        var start = event.start;
+
+        if (event.title) {
+            try {
+                var titleTime = moment(event.title, 'h:m a')
+                if (titleTime.isValid())
+                    start = moment(start).set({ hour: titleTime.hour(), minute: titleTime.minute() }).toDate(); 
+            } catch (e) {
+                // ignore exception, fallback to original event.start
+            }
+        }
+
+        return start;
     }
 }
 
