@@ -8,6 +8,7 @@ let GetNextServiceTime = require('./getNextServiceTime.js');
 let WhatIs = require('./whatIs.js');
 
 let PlayMusic = require('./playMusic.js');
+let PlayLatestService = require('./playLatestService.js');
 
 exports.handler = (event, context) => {
     try {
