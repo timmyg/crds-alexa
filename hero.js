@@ -2,7 +2,7 @@
 
 let Skill = require('./skill');
 
-class GetScrumUpdate extends Skill{
+class Hero extends Skill{
   constructor(context) {
     super(context);
   }
@@ -17,4 +17,4 @@ class GetScrumUpdate extends Skill{
   } 
 }
 
-module.exports = GetScrumUpdate;
+module.exports = Hero;
