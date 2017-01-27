@@ -9,7 +9,6 @@ let WhatIs = require('./whatIs.js');
 
 let PlayMusic = require('./playMusic.js');
 let PlayLatestService = require('./playLatestService.js');
-let Hero = require('./hero.js');
 
 exports.handler = (event, context) => {
     try {
