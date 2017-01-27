@@ -9,8 +9,7 @@ exports.handler = (event, context) => {
             console.log("NEW SESSION");
         }
     
-        skill.type = new Skill(event.request.intent.name);
-        skill.execute();
+        Skill.execute(event.request.intent.name);
     }
     catch(error) {
         context.fail(`Exception: ${error}`);
