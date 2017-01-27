@@ -80,8 +80,11 @@ class GetNextServiceTime extends Skill {
                 if (currentEvent)
                     sentences.push('A service is currently in progress');
 
-                if (nextEvent)
-                    sentences.push('The next service is ' + moment(this.getEventStartTime(nextEvent)).calendar());
+                if (nextEvent) {
+                    let eventTime = this.getEventStartTime(nextEvent);
+                    let eventTimeString = moment(eventTime).calendar(null, { sameElse: 'dddd MMMM Do [at] h:m A' });
+                    sentences.push('The next service is ' + eventTimeString);
+                }
 
                 if (sentences.length == 0)
                     sentences.push("I couldn't find any upcoming events");
