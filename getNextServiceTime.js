@@ -1,7 +1,7 @@
 'use strict';
 
 let https = require('https')
-let moment = require('moment')
+let moment = require('moment-timezone')
 let Skill = require('./skill');
 
 class Event {
@@ -120,6 +120,3 @@ class GetNextServiceTime extends Skill {
 }
 
 module.exports = GetNextServiceTime;
-
-var x = new GetNextServiceTime();
-x.getText((text) => { console.log(text)})
