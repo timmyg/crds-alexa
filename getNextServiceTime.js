@@ -77,6 +77,8 @@ class GetNextServiceTime extends Skill {
 
                 var sentences = [];
 
+                sentences.push('current time = ' + moment(now).format())
+
                 if (currentEvent)
                     sentences.push('A service is currently in progress');
 
@@ -118,3 +120,6 @@ class GetNextServiceTime extends Skill {
 }
 
 module.exports = GetNextServiceTime;
+
+var x = new GetNextServiceTime();
+x.getText((text) => { console.log(text)})
