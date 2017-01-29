@@ -1,7 +1,7 @@
 'use strict';
 
 let https = require('https')
-let moment = require('moment-timezone')
+let moment = require('moment')
 let Skill = require('./skill');
 
 class Event {
@@ -76,8 +76,6 @@ class GetNextServiceTime extends Skill {
                 }
 
                 var sentences = [];
-
-                sentences.push('current time = ' + moment(now).format())
 
                 if (currentEvent)
                     sentences.push('A service is currently in progress');
