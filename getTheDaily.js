@@ -23,16 +23,19 @@ class GetTheDaily extends Skill{
 
   getTheDailyText (date, callback) {
     var body = ''
+    console.log('getTheDailyText');
     https.get(`https://us12.api.mailchimp.com/3.0/campaigns?list_id=f5e8422ab9&sort_field=send_time&sort_dir=DESC&before_send_time=${date}`, (response) => {
         response.on('data', (chunk) => { body += chunk })
         response.on('end', () => {
             var result = JSON.parse(body);
+            console.log('result', result);
             var body2 = ''
             https.get(`https://us12.api.mailchimp.com/3.0/campaigns/${result.campaigns[0].id}/content`, (response2) => {
                 response2.on('data', (chunk) => { body2 += chunk })
                 response2.on('end', () => {
                     var result2 = JSON.parse(body2);
-                    callback(result2.plain_text);
+                    console.log('result2', result2);
+                    return callback(result2.plain_text);
                 });
             });
         });
