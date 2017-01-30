@@ -53,7 +53,7 @@ class GetTheDaily extends Skill{
         url: `https://us12.api.mailchimp.com/3.0/campaigns/${body.campaigns[0].id}/content`
        };
       request(options, function (error2, response12, body2) {
-        return callback(format(body2.plain_text));
+        return callback(this.format(body2.plain_text));
       });
     });
 
