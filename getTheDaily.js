@@ -24,7 +24,8 @@ class GetTheDaily extends Skill{
   }
 
   format (text) {
-    return text;
+    const searchString = 'Get the most out of The Daily';
+    return text.slice(0, text.indexOf(searchString))
   }
 
   getTheDailyText (date, callback) {
