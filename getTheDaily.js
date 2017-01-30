@@ -3,6 +3,7 @@
 let https = require('https')
 let moment = require('moment-timezone')
 var request = require('request');
+let cheerio = require('cheerio')
 let Skill = require('./skill');
 
 class GetTheDaily extends Skill{
