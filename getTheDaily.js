@@ -1,5 +1,6 @@
 'use strict';
 
+let https = require('https')
 let moment = require('moment-timezone')
 let Skill = require('./skill');
 
