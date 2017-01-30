@@ -22,54 +22,38 @@ class GetTheDaily extends Skill{
     });
   }
 
+  format (text) {
+    return text;
+  }
+
   getTheDailyText (date, callback) {
     var options = {
       method: 'GET',
       json: true,
+      auth: {
+        user: 'alexa',
+        pass: process.env.MAILCHIMP_API_KEY
+      },
       url: 'https://us12.api.mailchimp.com/3.0/campaigns',
-      qs:
-       { list_id: 'f5e8422ab9',
+      qs: { list_id: 'f5e8422ab9',
          sort_field: 'send_time',
          sort_dir: 'DESC',
-         before_send_time: '2017-01-27T15:41:36 00:00.' },
-      headers:
-       { 'postman-token': '720c5f32-82a3-9ff1-91d9-f62642dec508',
-         'cache-control': 'no-cache',
-         authorization: 'Basic YWxleGE6MzYzZDFjN2MxMDZiZjc3ZmU5OTViYTVhNmU3MTgwNmQtdXMxMg==' } };
+         before_send_time: '2017-01-27T15:41:36 00:00.' }
+       };
 
     request(options, function (error, response, body) {
-      console.log(body.campaigns, response.statusCode)
-
-
-
-
-
       options = {
         method: 'GET',
         json: true,
-        url: `https://us12.api.mailchimp.com/3.0/campaigns/${body.campaigns[0].id}/content`,
-        headers:
-         {
-           authorization: 'Basic YWxleGE6MzYzZDFjN2MxMDZiZjc3ZmU5OTViYTVhNmU3MTgwNmQtdXMxMg=='
-         }
+        auth: {
+          user: 'alexa',
+          pass: process.env.MAILCHIMP_API_KEY
+        },
+        url: `https://us12.api.mailchimp.com/3.0/campaigns/${body.campaigns[0].id}/content`
        };
-
       request(options, function (error2, response12, body2) {
-        console.log(body2);
-        return callback(body2.plain_text);
+        return callback(format(body2.plain_text));
       });
-
-
-
-
-
-
-
-
-
-
-
-
     });
 
   }
