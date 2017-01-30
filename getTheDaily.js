@@ -25,7 +25,7 @@ class GetTheDaily extends Skill{
 
   format (text) {
     const searchString = 'Get the most out of The Daily';
-    text = text.description.replace(/<(?:.|\n)*?>/gm, '');
+    text = text.replace(/<(?:.|\n)*?>/gm, '');
     return text.slice(0, text.indexOf(searchString))
   }
 
