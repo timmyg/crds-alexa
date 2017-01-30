@@ -3,16 +3,16 @@
 process.env.TZ = 'America/New_York'         // TODO: horrible hack; remove this once moment-timezone is working
 let moment = require('moment-timezone')
 
-let Skill = require('./skills/skill.js');
+let Skill = require('./models/skill');
 
-let AudioSkill = require('./outputs/audioSkill.js');
-let PlayMusic = require('./outputs/playMusic.js');
+let AudioSkill = require('./outputs/audioSkill');
+let PlayMusic = require('./outputs/playMusic');
 
-let GetScrumUpdate = require('./skills/getScrumUpdate.js');
-let GetNextServiceTime = require('./skills/getNextServiceTime.js');
-let GetTheDaily = require('./skills/getTheDaily.js');
-let WhatIs = require('./skills/whatIs.js');
-let PlayLatestService = require('./skills/playLatestService.js');
+let GetScrumUpdate = require('./skills/getScrumUpdate');
+let GetNextServiceTime = require('./skills/getNextServiceTime');
+let GetTheDaily = require('./skills/getTheDaily');
+let WhatIs = require('./skills/whatIs');
+let PlayLatestService = require('./skills/playLatestService');
 
 exports.handler = (event, context) => {
     try {
