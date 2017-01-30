@@ -28,6 +28,7 @@ class GetTheDaily extends Skill{
   }
 
   getTheDailyText (date, callback) {
+    var context = this;
     var options = {
       method: 'GET',
       json: true,
@@ -53,7 +54,7 @@ class GetTheDaily extends Skill{
         url: `https://us12.api.mailchimp.com/3.0/campaigns/${body.campaigns[0].id}/content`
        };
       request(options, function (error2, response12, body2) {
-        return callback(this.format(body2.plain_text));
+        return callback(context.format(body2.plain_text));
       });
     });
 
