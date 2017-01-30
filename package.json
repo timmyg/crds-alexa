@@ -14,7 +14,8 @@
   "author": "Crossroads",
   "license": "See license in ../LICENSE.txt",
   "dependencies": {
-    "moment-timezone": "^0.5.11"
+    "moment-timezone": "^0.5.11",
+    "request": "^2.79.0"
   },
   "repository": {
     "type": "git",
