@@ -37,9 +37,37 @@ class GetTheDaily extends Skill{
          authorization: 'Basic YWxleGE6MzYzZDFjN2MxMDZiZjc3ZmU5OTViYTVhNmU3MTgwNmQtdXMxMg==' } };
 
     request(options, function (error, response, body) {
-      if (error) throw new Error(error);
 
-      console.log(body);
+
+
+
+
+
+      options = {
+        method: 'GET',
+        url: `https://us12.api.mailchimp.com/3.0/campaigns/${body.campaigns[0].id}/content`,
+        headers:
+         {
+           authorization: 'Basic YWxleGE6MzYzZDFjN2MxMDZiZjc3ZmU5OTViYTVhNmU3MTgwNmQtdXMxMg=='
+         }
+       };
+
+      request(options, function (error2, response12, body2) {
+        console.log(body2);
+        return callback(body2.plain_text);
+      });
+
+
+
+
+
+
+
+
+
+
+
+
     });
 
   }
