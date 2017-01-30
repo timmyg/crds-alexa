@@ -45,7 +45,7 @@ class GetTheDaily extends Skill{
       qs: { list_id: 'f5e8422ab9',
          sort_field: 'send_time',
          sort_dir: 'DESC',
-         before_send_time: '2017-01-27T15:41:36 00:00.' }
+         before_send_time: date }
        };
 
     request(options, function (error, response, body) {
