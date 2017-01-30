@@ -8,7 +8,7 @@ let AudioSkill = require('./audioSkill.js');
 
 let GetScrumUpdate = require('./getScrumUpdate.js');
 let GetNextServiceTime = require('./getNextServiceTime.js');
-require('./getTheDaily.js');
+let GetTheDaily = require('./getTheDaily.js');
 let WhatIs = require('./whatIs.js');
 
 let PlayMusic = require('./playMusic.js');
