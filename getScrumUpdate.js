@@ -10,7 +10,7 @@ class GetScrumUpdate extends Skill{
   execute() {
     this.context.succeed(
       this.generateResponse(
-        this.buildSpeechletResponse('Do you want some coffee?', true),
+        this.buildSpeechletResponse('Some timezone issues were fixed last week and we will be working on developing dynamic conversations and actions today. Nadide wrote the code for todays scrum update', true),
         {}
       )
     );
