@@ -32,9 +32,6 @@ class GetTheDaily extends Skill{
       }
     console.log('options', options);
     var req = https.request(options, (response) => {
-        console.log('response', response);
-        console.log(`STATUS: ${res.statusCode}`);
-        console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
         response.on('data', (chunk) => { body += chunk })
         response.on('end', () => {
             var result = JSON.parse(body);
