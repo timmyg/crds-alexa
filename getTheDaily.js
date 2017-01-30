@@ -2,7 +2,7 @@
 
 let Skill = require('./skill');
 
-class getTheDaily extends Skill{
+class GetTheDaily extends Skill{
   constructor(context, request) {
     super(context, request);
   }
@@ -17,4 +17,4 @@ class getTheDaily extends Skill{
   }
 }
 
-module.exports = GetScrumUpdate;
+module.exports = GetTheDaily;
