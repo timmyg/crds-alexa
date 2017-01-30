@@ -1,8 +1,8 @@
 'use strict';
 
-let Skill = require('./skill');
+let Skill = require('../models/skill');
 
-class GetScrumUpdate extends Skill{
+class GetScrumUpdate extends Skill {
   constructor(context) {
     super(context);
   }
@@ -14,7 +14,7 @@ class GetScrumUpdate extends Skill{
         {}
       )
     );
-  } 
+  }
 }
 
 module.exports = GetScrumUpdate;

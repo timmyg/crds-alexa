@@ -1,9 +1,9 @@
 'use strict';
 
-let AudioSkill = require('./audioSkill');
+let AudioSkill = require('../outputs/audioSkill');
 let https = require('https');
 
-class PlayLatestService extends AudioSkill{
+class PlayLatestService extends AudioSkill {
   constructor(context) {
     super(context);
     this.endpoint = "https://www.crossroads.net/proxy/content/api/series";
@@ -19,9 +19,9 @@ class PlayLatestService extends AudioSkill{
         let latestMessage = messages[messages.length - 1];
         let url = latestMessage.messageAudio.source.filename;
         let description = latestMessage.description.replace(/<(?:.|\n)*?>/gm, '');
-        
+
         this.context.succeed(this.generateResponse(this.buildAudioResponse(url, `This service is about ${description}`, true), {}));
-      }); 
+      });
     });
   }
 }

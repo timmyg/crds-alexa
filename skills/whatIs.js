@@ -1,9 +1,9 @@
 'use strict';
 
-let Skill = require('./skill');
+let Skill = require('../models/skill');
 let https = require('https');
 
-class WhatIs extends Skill{
+class WhatIs extends Skill {
   constructor(context) {
     super(context);
     this.endpoint = "https://www.crossroads.net/proxy/content//api/SiteConfig/1";
@@ -18,7 +18,7 @@ class WhatIs extends Skill{
             let responseText = data.siteConfig.rSS_iTunesSummary;
             this.context.succeed(this.generateResponse(this.buildSpeechletResponse(responseText, true), {}));
         });
-    }); 
+    });
   }
 }
 

@@ -1,12 +1,12 @@
 'use strict';
 
-let Skill = require('./skill');
+let Skill = require('../models/skill');
 
-class AudioSkill extends Skill{
+class AudioSkill extends Skill {
     constructor(context) {
         super(context)
     }
-    
+
     buildAudioResponse(url, outputText, shouldEndSession) {
         return {
                 outputSpeech: {

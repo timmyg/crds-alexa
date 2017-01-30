@@ -2,16 +2,10 @@
 
 let https = require('https')
 let moment = require('moment-timezone')
-let Skill = require('./skill');
+let Skill = require('../models/skill');
+let Event = require('../models/event');
 
 let EVENT_TIME_ZONE = 'America/New_York';
-
-class Event {
-    constructor(start, title) {
-        this.start = start;
-        this.title = title;
-    }
-}
 
 class GetNextServiceTime extends Skill {
     constructor(context) {
@@ -109,7 +103,7 @@ class GetNextServiceTime extends Skill {
             try {
                 var titleTime = moment.tz(event.title, 'h:m a', EVENT_TIME_ZONE)
                 if (titleTime.isValid())
-                    start = start.set({ hour: titleTime.hour(), minute: titleTime.minute() }); 
+                    start = start.set({ hour: titleTime.hour(), minute: titleTime.minute() });
             } catch (e) {
                 // ignore exception, fallback to original event.start
             }
