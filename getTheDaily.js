@@ -8,9 +8,10 @@ class GetTheDaily extends Skill{
   }
 
   execute() {
+    let date = moment(this.request.intent.slots.FromDate.value).format("YYYY-MM-DD")
     this.context.succeed(
       this.generateResponse(
-        this.buildSpeechletResponse(`Ima get you the daily from: ${this.request.intent.slots.FromDate.value}`, true),
+        this.buildSpeechletResponse(`Ima get you the daily from: ${date}`, true),
         {}
       )
     );
