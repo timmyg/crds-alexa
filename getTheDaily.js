@@ -33,7 +33,6 @@ class GetTheDaily extends Skill{
           pass: process.env.MAILCHIMP_API_KEY
         }
       }
-    };
     https.get(options, (response) => {
         response.on('data', (chunk) => { body += chunk })
         response.on('end', () => {
