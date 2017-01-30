@@ -24,8 +24,10 @@ class GetTheDaily extends Skill{
   }
 
   format (text) {
+    // this may or may not be where all the footer 'gibberish' starts in the email
+    // that we need to pull out
     const searchString = 'Get the most out of The Daily';
-    text = text.replace(/<(?:.|\n)*?>/gm, '');
+    text = text.replace(/\n/g, ' ');
     return text.slice(0, text.indexOf(searchString))
   }
 
