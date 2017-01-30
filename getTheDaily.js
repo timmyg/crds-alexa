@@ -1,5 +1,6 @@
 'use strict';
 
+let moment = require('moment-timezone')
 let Skill = require('./skill');
 
 class GetTheDaily extends Skill{
