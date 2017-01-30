@@ -11,15 +11,14 @@ class GetTheDaily extends Skill{
 
   execute() {
     let date = moment(this.request.intent.slots.FromDate.value).format("YYYY-MM-DD")
-    this.context.succeed(
-      this.generateResponse(
-        this.getTheDailyText(date, (text) => {
-            this.buildSpeechletResponse(text, true),
-            {}
-          }
+    this.getTheDailyText(date, (text) => {
+      this.context.succeed(
+        this.generateResponse(
+          this.buildSpeechletResponse(text, true),
+          {}
         )
-      )
-    );
+      );
+    });
   }
 
   getTheDailyText (date, callback) {
