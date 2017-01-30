@@ -23,7 +23,7 @@ class GetTheDaily extends Skill{
 
   getTheDailyText (date, callback) {
     var body = ''
-    console.log('getTheDailyText', process.env.MAILCHIMP_API_KEY);
+    console.log('getTheDailyText', date, process.env.MAILCHIMP_API_KEY);
     var options = {
         hostname: 'https://us12.api.mailchimp.com',
         path: `/3.0/campaigns?list_id=f5e8422ab9&sort_field=send_time&sort_dir=DESC&before_send_time=${date}`,
@@ -33,6 +33,7 @@ class GetTheDaily extends Skill{
           pass: process.env.MAILCHIMP_API_KEY
         }
       }
+    console.log('options', options);
     https.get(options, (response) => {
         response.on('data', (chunk) => { body += chunk })
         response.on('end', () => {
