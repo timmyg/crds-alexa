@@ -109,7 +109,7 @@ class GetNextServiceTime extends Skill {
             try {
                 var titleTime = moment.tz(event.title, 'h:m a', EVENT_TIME_ZONE)
                 if (titleTime.isValid())
-                    start = moment(start).set({ hour: titleTime.hour(), minute: titleTime.minute() }).toDate(); 
+                    start = start.set({ hour: titleTime.hour(), minute: titleTime.minute() }); 
             } catch (e) {
                 // ignore exception, fallback to original event.start
             }
