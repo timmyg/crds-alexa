@@ -1,13 +1,14 @@
 'use strict';
 
 class Skill {
-    constructor(context) {
+    constructor(context, request) {
         this.context = context;
+        this.request = request;
     }
-    
+
     execute() {
     }
-    
+
     buildSpeechletResponse(outputText, shouldEndSession) {
         return {
             outputSpeech: {
