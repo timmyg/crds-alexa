@@ -1,7 +1,5 @@
 'use strict';
 
-process.env.TZ = 'America/New_York'         // TODO: horrible hack; remove this once moment-timezone is working
-
 let Skill = require('./skill.js');
 let AudioSkill = require('./audioSkill.js');
 

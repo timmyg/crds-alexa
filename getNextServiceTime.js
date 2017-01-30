@@ -1,8 +1,10 @@
 'use strict';
 
 let https = require('https')
-let moment = require('moment')
+let moment = require('moment-timezone')
 let Skill = require('./skill');
+
+let EVENT_TIME_ZONE = 'America/New_York';
 
 class Event {
     constructor(start, title) {
@@ -59,8 +61,8 @@ class GetNextServiceTime extends Skill {
                     var nextEvent = null;
 
                     result.data.events.forEach(e => {
-                        var start = moment(e.start);
-                        var end = moment(e.end);
+                        var start = moment.tz(e.start, EVENT_TIME_ZONE);
+                        var end = moment.tz(e.end, EVENT_TIME_ZONE);
                         var title = e.title;
 
                         if (start <= now && end > now) {
@@ -105,7 +107,7 @@ class GetNextServiceTime extends Skill {
 
         if (event.title) {
             try {
-                var titleTime = moment(event.title, 'h:m a')
+                var titleTime = moment.tz(event.title, 'h:m a', EVENT_TIME_ZONE)
                 if (titleTime.isValid())
                     start = moment(start).set({ hour: titleTime.hour(), minute: titleTime.minute() }).toDate(); 
             } catch (e) {
