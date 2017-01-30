@@ -28,11 +28,13 @@ class GetTheDaily extends Skill{
         hostname: 'https://us12.api.mailchimp.com',
         path: `/3.0/campaigns?list_id=f5e8422ab9&sort_field=send_time&sort_dir=DESC&before_send_time=${date}`,
         method: 'GET',
-        port: 443,
         auth: `alexa ${process.env.MAILCHIMP_API_KEY}`,
       }
     console.log('options', options);
-    https.get(options, (response) => {
+    https.request(options, (response) => {
+        console.log('response', response);
+        console.log(`STATUS: ${res.statusCode}`);
+        console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
         response.on('data', (chunk) => { body += chunk })
         response.on('end', () => {
             var result = JSON.parse(body);
