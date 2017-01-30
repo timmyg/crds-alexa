@@ -1,3 +1,5 @@
+'use strict';
+
 class Event {
     constructor(start, title) {
         this.start = start;
