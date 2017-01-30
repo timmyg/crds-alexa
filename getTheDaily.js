@@ -25,6 +25,7 @@ class GetTheDaily extends Skill{
   getTheDailyText (date, callback) {
     var options = {
       method: 'GET',
+      json: true,
       url: 'https://us12.api.mailchimp.com/3.0/campaigns',
       qs:
        { list_id: 'f5e8422ab9',
@@ -45,6 +46,7 @@ class GetTheDaily extends Skill{
 
       options = {
         method: 'GET',
+        json: true,
         url: `https://us12.api.mailchimp.com/3.0/campaigns/${body.campaigns[0].id}/content`,
         headers:
          {
