@@ -31,7 +31,7 @@ class GetTheDaily extends Skill{
         auth: `alexa ${process.env.MAILCHIMP_API_KEY}`,
       }
     console.log('options', options);
-    https.request(options, (response) => {
+    var req = https.request(options, (response) => {
         console.log('response', response);
         console.log(`STATUS: ${res.statusCode}`);
         console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
@@ -50,6 +50,8 @@ class GetTheDaily extends Skill{
             });
         });
     });
+    console.log(req);
+    req.end();
   }
 
 }
