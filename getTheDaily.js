@@ -37,7 +37,7 @@ class GetTheDaily extends Skill{
          authorization: 'Basic YWxleGE6MzYzZDFjN2MxMDZiZjc3ZmU5OTViYTVhNmU3MTgwNmQtdXMxMg==' } };
 
     request(options, function (error, response, body) {
-
+      console.log(body, response.statusCode)
 
 
 
