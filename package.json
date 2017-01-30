@@ -1,5 +1,5 @@
 {
-  "name": "Crossroads Alexa",
+  "name": "crds-alexa",
   "version": "0.0.1",
   "description": "Lambda function for Crossroads Alexa Skills.",
   "main": "index.js",
