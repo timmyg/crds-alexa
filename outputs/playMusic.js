@@ -22,7 +22,8 @@ class PlayMusic extends AudioSkill {
         let randomNumber = Math.floor(Math.random() * mediaAudio.length);
         let randomAudio = mediaAudio[randomNumber];
 
-        this.context.succeed(this.generateResponse(this.buildAudioResponse(randomAudio.source.filename, `Playing ${randomAudio.title}`, true), {}));
+        console.log('play audio', randomAudio.source.filename, `Playing ${randomAudio.title}`, true)
+        this.context.succeed(this.generateResponse(this.buildAudioResponse(randomAudio.source.filename, `Playing ${randomAudio.title}`, true, false), {}));
       });
     });
   }
