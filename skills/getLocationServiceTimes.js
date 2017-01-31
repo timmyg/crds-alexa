@@ -9,8 +9,12 @@ class GetLocationServiceTimes extends Skill {
   }
 
   execute() {
-    const serviceLocation = this.request.intent.slots.ServiceLocation
-    this.context.succeed(this.generateResponse(this.buildSpeechletResponse(`your location is ${serviceLocation}`, true), {}));
+    const serviceLocation = this.request.intent.slots.ServiceLocation.value
+    if (serviceLocation) {
+        this.context.succeed(this.generateResponse(this.buildSpeechletResponse(`The hours at ${serviceLocation} are blahblah`, true), {}));
+    } else {
+        this.context.succeed(this.generateResponse(this.buildSpeechletResponse(`At which location?`, true), {}));
+    }
   }
 }
 
