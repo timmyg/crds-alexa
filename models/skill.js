@@ -9,14 +9,19 @@ class Skill {
     execute() {
     }
 
-    buildSpeechletResponse(outputText, shouldEndSession) {
-        return {
-            outputSpeech: {
-                type: "PlainText",
-                text: outputText
-            },
-            shouldEndSession: shouldEndSession
-        }
+    buildSpeechletResponse(outputText, shouldEndSession, isSSML) {
+      let resp = {
+        outputSpeech: {
+            type: "PlainText",
+            text: outputText
+        },
+        shouldEndSession: shouldEndSession
+      }
+      if (isSSML) {
+        resp.outputSpeech.type = "SSML";
+        resp.outputSpeech.ssml = `<speak>${resp.outputSpeech.text}</speak>`;
+      }
+      return resp;
     }
 
     generateResponse(speechletResponse, sessionAttributes) {

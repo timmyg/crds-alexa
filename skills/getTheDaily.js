@@ -17,7 +17,7 @@ class GetTheDaily extends Skill {
     this.getTheDailyText(date, (text) => {
       this.context.succeed(
         this.generateResponse(
-          this.buildSpeechletResponse(text, true),
+          this.buildSpeechletResponse(text, true, true),
           {}
         )
       );
