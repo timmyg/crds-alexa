@@ -13,7 +13,7 @@ class GetLocationServiceTimes extends Skill {
     if (serviceLocation) {
         this.context.succeed(this.generateResponse(this.buildSpeechletResponse(`The hours at ${serviceLocation} are blahblah`, true), {}));
     } else {
-        this.context.succeed(this.generateResponse(this.buildSpeechletResponse(`At which location?`, true), {}));
+        this.context.succeed(this.generateResponse(this.buildSpeechletResponse(`At which location?`, false), {}));
     }
   }
 }
