@@ -1,6 +1,6 @@
 'use strict';
 
-let Skill = require('../models/skill');
+let Skill = require('./skill');
 
 class Help extends Skill {
   constructor(context) {
