@@ -6,3 +6,5 @@ class Event {
         this.title = title;
     }
 }
+
+module.exports = Event;
