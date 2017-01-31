@@ -113,4 +113,4 @@ class GetNextLiveStreamTime extends Skill {
     }
 }
 
-module.exports = GetNextServiceTime;
+module.exports = GetNextLiveStreamTime;
