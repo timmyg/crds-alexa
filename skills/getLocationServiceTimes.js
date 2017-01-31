@@ -4,9 +4,8 @@ let Skill = require('../models/skill');
 let https = require('https');
 
 class GetLocationServiceTimes extends Skill {
-  constructor(context) {
-    super(context);
-    this.endpoint = "https://www.crossroads.net/proxy/content//api/SiteConfig/1";
+  constructor(context, request) {
+    super(context, request);
   }
 
   execute() {
