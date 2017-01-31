@@ -4,7 +4,7 @@ let https = require('https')
 let moment = require('moment-timezone')
 var request = require('request');
 let cheerio = require('cheerio')
-let Skill = require('../models/skill');
+let Skill = require('../skill');
 
 class GetTheDaily extends Skill {
   constructor(context, request) {

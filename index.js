@@ -3,9 +3,8 @@
 process.env.TZ = 'America/New_York'         // TODO: horrible hack; remove this once moment-timezone is working
 let moment = require('moment-timezone')
 
-let Skill = require('./models/skill');
-
-let AudioSkill = require('./outputs/audioSkill');
+let Skill = require('./skills/skill');
+let AudioSkill = require('./skills/audioSkill');
 
 let PlayMusic = require('./skills/playMusic');
 let GetScrumUpdate = require('./skills/getScrumUpdate');

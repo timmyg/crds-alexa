@@ -2,8 +2,8 @@
 
 let https = require('https')
 let moment = require('moment-timezone')
-let Skill = require('../models/skill');
-let Event = require('../models/event');
+let Skill = require('../skill');
+let Event = require('../../models/event');
 
 let EVENT_TIME_ZONE = 'America/New_York';
 

@@ -1,6 +1,6 @@
 'use strict';
 
-let AudioSkill = require('../outputs/audioSkill');
+let AudioSkill = require('../audioSkill');
 let https = require('https');
 
 class PlayLatestService extends AudioSkill {

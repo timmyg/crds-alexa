@@ -1,6 +1,6 @@
 'use strict';
 
-let Skill = require('../models/skill');
+let Skill = require('../skill');
 let https = require('https');
 
 class WhatIs extends Skill {
