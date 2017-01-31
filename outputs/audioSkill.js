@@ -32,6 +32,7 @@ class AudioSkill extends Skill {
           resp.outputSpeech.type = "SSML";
           resp.outputSpeech.ssml = `<speak>${resp.outputSpeech.text}</speak>`;
         }
+        return resp;
     }
 }
 
