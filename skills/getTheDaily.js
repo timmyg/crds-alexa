@@ -29,6 +29,8 @@ class GetTheDaily extends Skill {
     // that we need to pull out
     const footerStart = 'Get the most out of The Daily';
     text = text.replace(/\n/g, '<break time="1s"/>');
+    // remove url's from string
+    text = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
     return text.slice(0, text.indexOf(footerStart))
   }
 
