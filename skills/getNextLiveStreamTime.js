@@ -7,7 +7,7 @@ let Event = require('../models/event');
 
 let EVENT_TIME_ZONE = 'America/New_York';
 
-class GetNextServiceTime extends Skill {
+class GetNextLiveStreamTime extends Skill {
     constructor(context) {
         super(context);
     }

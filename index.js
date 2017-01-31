@@ -6,10 +6,10 @@ let moment = require('moment-timezone')
 let Skill = require('./models/skill');
 
 let AudioSkill = require('./outputs/audioSkill');
-let PlayMusic = require('./outputs/playMusic');
 
+let PlayMusic = require('./skills/playMusic');
 let GetScrumUpdate = require('./skills/getScrumUpdate');
-let GetNextServiceTime = require('./skills/getNextServiceTime');
+let GetNextLiveStreamTime = require('./skills/getNextLiveStreamTime');
 let GetTheDaily = require('./skills/getTheDaily');
 let WhatIs = require('./skills/whatIs');
 let PlayLatestService = require('./skills/playLatestService');

@@ -1,6 +1,6 @@
 'use strict';
 
-let AudioSkill = require('./audioSkill');
+let AudioSkill = require('../outputs/audioSkill');
 let https = require('https');
 
 class PlayMusic extends AudioSkill {
