@@ -74,12 +74,12 @@ class GetNextLiveStreamTime extends Skill {
                 var sentences = [];
 
                 if (currentEvent)
-                    sentences.push('A service is currently in progress');
+                    sentences.push('A live stream is currently in progress');
 
                 if (nextEvent) {
                     let eventTime = this.getEventStartTime(nextEvent);
                     let eventTimeString = moment(eventTime).calendar(null, { sameElse: 'dddd MMMM Do [at] h:m A' });
-                    sentences.push('The next service is ' + eventTimeString);
+                    sentences.push('The next live stream is ' + eventTimeString);
                 }
 
                 if (sentences.length == 0)
