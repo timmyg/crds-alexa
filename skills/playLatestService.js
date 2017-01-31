@@ -20,7 +20,7 @@ class PlayLatestService extends AudioSkill {
         let url = latestMessage.messageAudio.source.filename;
         let description = latestMessage.description.replace(/<(?:.|\n)*?>/gm, '');
 
-        this.context.succeed(this.generateResponse(this.buildAudioResponse(url, `This service is about ${description}`, true), {}));
+        this.context.succeed(this.generateResponse(this.buildAudioResponse(url, description, true), {}));
       });
     });
   }
