@@ -14,7 +14,6 @@
   "author": "Crossroads",
   "license": "UNLICENSED",
   "dependencies": {
-    "cheerio": "^0.22.0",
     "moment-timezone": "^0.5.11",
     "request": "^2.79.0"
   },

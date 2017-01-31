@@ -17,6 +17,8 @@ class Skill {
         },
         shouldEndSession: shouldEndSession
       }
+      // usage: user does not say anything that maps to an intent defined in
+      // your voice interface while the audio stream is open
       if (repromptSpeech) {
         resp.reprompt = {
           outputSpeech: {
