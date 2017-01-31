@@ -7,9 +7,9 @@ class AudioSkill extends Skill {
         super(context)
     }
 
-    buildAudioResponse(url, outputText, shouldEndSession) {
-        return {
-                outputSpeech: {
+    buildAudioResponse(url, outputText, shouldEndSession, isSSML) {
+        let resp = {
+            outputSpeech: {
                 type: "PlainText",
                 text: outputText
             },
@@ -27,6 +27,10 @@ class AudioSkill extends Skill {
                 }
             ],
             shouldEndSession: shouldEndSession
+        }
+        if (isSSML) {
+          resp.outputSpeech.type = "SSML";
+          resp.outputSpeech.ssml = `<speak>${resp.outputSpeech.text}</speak>`;
         }
     }
 }
