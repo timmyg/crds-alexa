@@ -9,6 +9,7 @@ let AudioSkill = require('./outputs/audioSkill');
 
 let PlayMusic = require('./skills/playMusic');
 let GetScrumUpdate = require('./skills/getScrumUpdate');
+let Help = require('./skills/help');
 let GetNextLiveStreamTime = require('./skills/getNextLiveStreamTime');
 let GetTheDaily = require('./skills/getTheDaily');
 let WhatIs = require('./skills/whatIs');
