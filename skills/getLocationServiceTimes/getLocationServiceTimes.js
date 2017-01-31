@@ -12,7 +12,7 @@ class GetLocationServiceTimes extends Skill {
     const serviceLocation = this.request.intent.slots.ServiceLocation.value
     if (serviceLocation) {
         const timesString = this.getTimesString(serviceLocation);
-        this.context.succeed(this.generateResponse(this.buildSpeechletResponse(`The hours at ${serviceLocation} are blahblah`, true), {}));
+        this.context.succeed(this.generateResponse(this.buildSpeechletResponse(timesString, true), {}));
     } else {
         this.context.succeed(this.generateResponse(this.buildSpeechletResponse(`At which location?`, false, false, `At which location do you want service times? We have locations in Oakley, Mason, Oxford, Clifton, West Side, East Side, Columbus, Andover, Florence, Gerogetown, and Richmond`), {intent: 'GetLocationServiceTimes'}));
     }
