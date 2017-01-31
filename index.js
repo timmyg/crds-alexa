@@ -14,6 +14,7 @@ let GetNextLiveStreamTime = require('./skills/getNextLiveStreamTime');
 let GetTheDaily = require('./skills/getTheDaily');
 let WhatIs = require('./skills/whatIs');
 let PlayLatestService = require('./skills/playLatestService');
+let GetLocationServiceTimes = require('./skills/getLocationServiceTimes');
 
 exports.handler = (event, context) => {
     try {
