@@ -12,7 +12,9 @@ class GetTheDaily extends Skill {
 
   execute() {
     const now = moment()
-    let date = moment(this.request.intent.slots.FromDate.value).hour(now.hour()).minute(now.minute()).format()
+    // let date = moment(this.request.intent.slots.FromDate.value).hour(now.hour()).minute(now.minute()).format()
+    // hack for playing todays
+    let date = moment(this.request.intent.slots.FromDate.value).hour(14).minute(now.minute()).format()
     this.getTheDailyText(date, (text) => {
       this.context.succeed(
         this.generateResponse(
