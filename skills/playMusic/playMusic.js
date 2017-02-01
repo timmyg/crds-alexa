@@ -26,7 +26,7 @@ class PlayMusic extends AudioSkill {
     //     this.context.succeed(this.generateResponse(this.buildAudioResponse(randomAudio.source.filename, `Playing ${randomAudio.title}`, true, false), {}));
     //   });
     // });
-    url = `https://s3.amazonaws.com/crds-cms-uploads/media/music/02-Heaven-Fall-Down.mp3`;
+    const url = `https://s3.amazonaws.com/crds-cms-uploads/media/music/02-Heaven-Fall-Down.mp3`;
     this.context.succeed(this.generateResponse(this.buildAudioResponse(url, `Playing Heaven Fall Down`, true, false), {}));
 
   }
