@@ -1,4 +1,5 @@
 'use strict';
+let Skill = require('./skill');
 
 class ApiAiSkill extends Skill {
     constructor(context, request) {

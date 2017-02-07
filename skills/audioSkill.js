@@ -1,5 +1,4 @@
 'use strict';
-
 let Skill = require('./skill');
 
 class AudioSkill extends Skill {

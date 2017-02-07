@@ -25,13 +25,13 @@ exports.handler = (event, context) => {
     }
 }
 
-transform = (event) => {
+function transform (event) {
   if (event.request.intent.name) {
     // is alexa
     let c = eval(event.request.intent.name);
     let skill = new c(context, event.request);
     return skill;
-  } else if (event.body typeof "string") {
+  } else if (typeof event.body === "string") {
     // is apiai/google
     const data = JSON.parse(event.body)
     let c = eval(data.result.action);

@@ -1,4 +1,5 @@
 'use strict';
+let Skill = require('./skill');
 
 class AlexaSkill extends Skill {
     constructor(context, request) {
