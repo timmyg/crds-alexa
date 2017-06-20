@@ -24,7 +24,7 @@ class BestDrinker extends Skill {
         request(options, function (error, response, body) {
           if (error) throw new Error(error);
           console.log(body);
-          callback(body)
+          callback(null, body)
         });
       },
       function(callback) {
@@ -36,7 +36,7 @@ class BestDrinker extends Skill {
         request(options, function (error, response, body) {
           if (error) throw new Error(error);
           console.log(body);
-          callback(body)
+          callback(null, body)
         });
       }
     ], function(results, err) {
