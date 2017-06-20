@@ -40,9 +40,20 @@ class BestDrinker extends Skill {
         });
       }
     ], function(err, results) {
-      console.log("ERRR", err);
-      console.log("RESULTS", results);
+      // console.log("ERRR", err);
+      // console.log("RESULTS", results);
+      // console.log(results[0].objects.length)
+      // console.log(results[1].objects.length)
         // optional callback
+      let response = '';
+      response = response.concat('Mark has had ' + results[0].objects.length + ' beers and')
+      response = response.concat('Gary has had ' + results[1].objects.length + ' beers')
+      this.context.succeed(
+        this.generateResponse(
+          this.buildSpeechletResponse(response, true),
+          {}
+        )
+      );
     });
   }
 }
