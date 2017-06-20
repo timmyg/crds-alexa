@@ -17,7 +17,7 @@ class BestDrinker extends Skill {
     async.parallel([
       function(callback) {
         var options = { method: 'GET',
-          url: 'http://192.168.128.24:8000/api/users/' + mark,
+          url: 'callibrity-khqqrnjcpq.dynamic-m.com:8000/api/users/' + mark,
           qs: { api_key: key }
         };
 
@@ -29,7 +29,7 @@ class BestDrinker extends Skill {
       },
       function(callback) {
         var options = { method: 'GET',
-          url: 'http://192.168.128.24:8000/api/users/' + gary,
+          url: 'callibrity-khqqrnjcpq.dynamic-m.com:8000/api/users/' + gary,
           qs: { api_key: key }
         };
 
