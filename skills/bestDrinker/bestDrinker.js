@@ -39,7 +39,7 @@ class BestDrinker extends Skill {
           callback(body)
         });
       }
-    ], function(err, results) {
+    ], function(results, err) {
       console.log("ERRR", err);
       console.log("RESULTS", results);
       // console.log(results[0].objects.length)
