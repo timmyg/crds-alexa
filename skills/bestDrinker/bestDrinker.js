@@ -13,6 +13,7 @@ class BestDrinker extends Skill {
   }
 
   execute() {
+    console.log("EXECUTING BEST DRINKER")
     async.parallel([
       function(callback) {
         var options = { method: 'GET',
