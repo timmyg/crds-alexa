@@ -14,7 +14,7 @@ class BestDrinker extends Skill {
 
   execute() {
     console.log("EXECUTING BEST DRINKER")
-    var ctxt = this.context;
+    var t = this.context;
     async.parallel([
       function(callback) {
         var options = { method: 'GET',
@@ -49,9 +49,9 @@ class BestDrinker extends Skill {
       let response = '';
       response = response.concat('Mark has had ' + JSON.parse(results[0]).objects.length + ' beers and')
       response = response.concat('Gary has had ' + JSON.parse(results[1]).objects.length + ' beers')
-      ctxt.succeed(
-        this.generateResponse(
-          this.buildSpeechletResponse(response, true),
+      t.context.succeed(
+        t.generateResponse(
+          t.buildSpeechletResponse(response, true),
           {}
         )
       );
