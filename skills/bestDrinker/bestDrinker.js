@@ -10,13 +10,12 @@ const gary = 'ghoward';
 class BestDrinker extends Skill {
   constructor(context) {
     super(context);
-    this.endpoint = "https://www.crossroads.net/proxy/content/api/series";
   }
 
   execute() {
     async.parallel([
       function(callback) {
-        var options = { method: 'POST',
+        var options = { method: 'GET',
           url: 'http://192.168.128.24:8000/api/users/' + mark,
           qs: { api_key: key }
         };
@@ -28,7 +27,7 @@ class BestDrinker extends Skill {
         });
       },
       function(callback) {
-        var options = { method: 'POST',
+        var options = { method: 'GET',
           url: 'http://192.168.128.24:8000/api/users/' + gary,
           qs: { api_key: key }
         };
