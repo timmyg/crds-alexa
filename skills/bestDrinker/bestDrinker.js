@@ -40,8 +40,8 @@ class BestDrinker extends Skill {
         });
       }
     ], function(err, results) {
-      // console.log("ERRR", err);
-      // console.log("RESULTS", results);
+      console.log("ERRR", err);
+      console.log("RESULTS", results);
       // console.log(results[0].objects.length)
       // console.log(results[1].objects.length)
         // optional callback
