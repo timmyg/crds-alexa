@@ -10,6 +10,7 @@ let PlayMusic = require('./skills/playMusic');
 let GetScrumUpdate = require('./skills/getScrumUpdate');
 let Help = require('./skills/help');
 let GetNextLiveStreamTime = require('./skills/getNextLiveStreamTime');
+let HowAreYou = require('./skills/howAreYou');
 let GetTheDaily = require('./skills/getTheDaily');
 let WhatIs = require('./skills/whatIs');
 let PlayLatestService = require('./skills/playLatestService');
