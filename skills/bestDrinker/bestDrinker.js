@@ -47,7 +47,7 @@ class BestDrinker extends Skill {
       // console.log(results[1].objects.length)
         // optional callback
       let response = '';
-      response = response.concat('Mark has had ' + JSON.parse(results[0]).objects.length + ' beers and')
+      response = response.concat('Mark has had ' + JSON.parse(results[0]).objects.length + ' beers and ')
       response = response.concat('Gary has had ' + JSON.parse(results[1]).objects.length + ' beers')
       self.context.succeed(
         self.generateResponse(
