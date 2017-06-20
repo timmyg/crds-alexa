@@ -14,8 +14,9 @@
   "author": "Crossroads",
   "license": "UNLICENSED",
   "dependencies": {
+    "async": "^2.4.1",
     "moment-timezone": "^0.5.11",
-    "request": "^2.79.0"
+    "request": "^2.81.0"
   },
   "repository": {
     "type": "git",
