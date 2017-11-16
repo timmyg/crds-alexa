@@ -1,12 +1,13 @@
 'use strict';
+let Skill = require('./skill');
 
-class Skill {
+class AlexaSkill extends Skill {
     constructor(context, request) {
-        this.context = context;
-        this.request = request;
+        super(context, request);
     }
 
-    execute() {}
+    // execute() {
+    // }
 
     buildSpeechletResponse(outputText, shouldEndSession, isSSML, repromptSpeech) {
       let resp = {
@@ -43,4 +44,4 @@ class Skill {
     }
 }
 
-module.exports = Skill;
+module.exports = AlexaSkill;

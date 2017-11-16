@@ -18,15 +18,25 @@ let GetLocationServiceTimes = require('./skills/getLocationServiceTimes');
 
 exports.handler = (event, context) => {
     try {
-        if (event.session.new) {
-            console.log("NEW SESSION");
-        }
-
-        let c = eval(event.request.intent.name);
-        let skill = new c(context, event.request);
+        let skill = transform(event);
         skill.execute();
     }
     catch(error) {
         context.fail(`Exception: ${error}`);
     }
+}
+
+function transform (event) {
+  if (event.request.intent.name) {
+    // is alexa
+    let c = eval(event.request.intent.name);
+    let skill = new c(context, event.request);
+    return skill;
+  } else if (typeof event.body === "string") {
+    // is apiai/google
+    const data = JSON.parse(event.body)
+    let c = eval(data.result.action);
+    let skill = new c(context, data.request);
+    return skill;
+  }
 }
